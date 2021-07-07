@@ -13,15 +13,14 @@ def get_tool():  # noqa: E501
     :rtype: Tool
     """
     tool = Tool(
-        name="phi-annotator-example",
-        version="1.2.1",
+        name="connor-phi-annotator",
+        version="0.0.1",
         license=License.APACHE_2_0,
-        repository="github:nlpsandbox/phi-annotator-example",
-        description="Example implementation of the NLP Sandbox PHI " +
-                "Annotator API",
-        author="NLP Sandbox Team",
-        author_email="team@nlpsandbox.io",
-        url="https://github.com/nlpsandbox/phi-annotator-example",
+        repository="github:cascadianblue/phi-annotator",
+        description="Connor Boyle's PHI annotator based on a linear SVM.",
+        author="Connor Boyle",
+        author_email="connor.bo@gmail.com",
+        url="https://github.com/cascadianblue/phi-annotator",
         type=ToolType.PHI_ANNOTATOR,
         api_version="1.2.0"
     )
