@@ -1,6 +1,5 @@
 import argparse
 from openapi_server.annotator.annotate import Annotator
-from openapi_server.annotator.label_spans import DATE_TYPES
 from openapi_server.annotator.load_data import load_files
 
 
@@ -24,6 +23,4 @@ if __name__ == '__main__':
             in zip(texts, model_annotation_sets, annotation_sets):
         print(text[:50])
         print(model_annotation_set)
-        print(list(filter(
-            lambda annot: annot['TYPE'] in DATE_TYPES,
-            annotation_set)))
+        print(annotation_set)
