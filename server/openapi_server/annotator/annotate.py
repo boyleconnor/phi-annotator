@@ -4,6 +4,7 @@ from typing import Union, BinaryIO, List
 from sklearn.linear_model import SGDClassifier
 from openapi_server.annotator.label_spans import label_tokens
 from openapi_server.annotator.load_data import AnnotationSet
+from openapi_server.annotator.phi_types import PhiType
 from openapi_server.annotator.tokenize import Tokenizer
 from openapi_server.annotator.vectorize import Vectorizer
 
@@ -55,9 +56,11 @@ class Annotator:
             annotation_set = []
             for token, span in zip(tokens, spans):
                 # If the token has been marked, create an annotation for it
-                if y[i] == 1:
+                if y[i]:
                     start, end = span
+                    phi_type = PhiType(y[i]).name
                     annotation_set.append({
+                        'type': phi_type,
                         'text': token,
                         'start': start,
                         'end': end
