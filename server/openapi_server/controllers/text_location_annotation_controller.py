@@ -2,6 +2,8 @@ import connexion
 import pandas as pd
 import re
 
+from openapi_server.annotator.phi_types import PhiType
+from openapi_server.get_annotations import get_annotations
 from openapi_server.models.error import Error  # noqa: E501
 from openapi_server.models.text_location_annotation import TextLocationAnnotation  # noqa: E501
 from openapi_server.models.text_location_annotation_request import TextLocationAnnotationRequest  # noqa: E501
@@ -44,34 +46,10 @@ def create_text_location_annotations():  # noqa: E501
     if connexion.request.is_json:
         try:
             annotation_request = TextLocationAnnotationRequest.from_dict(connexion.request.get_json())  # noqa: E501
-            note = annotation_request._note
-            annotations = []
-
-            # TODO: Add data sources
-            for street in data._streets:
-                matches = re.finditer(
-                    r'\b({})\b'.format(street), note._text, re.IGNORECASE)
-                add_annotations(annotations, matches, 'street')
-
-            for city in data._cities:
-                matches = re.finditer(
-                    r'\b({})\b'.format(city), note._text, re.IGNORECASE)
-                add_annotations(annotations, matches, 'city')
-
-            for state in data._states:
-                matches = re.finditer(
-                    r'\b({})\b'.format(state), note._text, re.IGNORECASE)
-                add_annotations(annotations, matches, 'state')
-
-            for country in data._countries:
-                matches = re.finditer(
-                    r'\b({})\b'.format(country), note._text, re.IGNORECASE)
-                add_annotations(annotations, matches, 'country')
-
-            for other in data._others:
-                matches = re.finditer(
-                    r'\b({})\b'.format(other), note._text, re.IGNORECASE)
-                add_annotations(annotations, matches, 'other')
+            note = annotation_request.note
+            annotations = get_annotations(
+                note, phi_type=PhiType.LOCATION,
+                annotation_class=TextLocationAnnotation)
 
             res = TextLocationAnnotationResponse(annotations)
             status = 200
