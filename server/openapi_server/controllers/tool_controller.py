@@ -14,7 +14,7 @@ def get_tool():  # noqa: E501
     """
     tool = Tool(
         name="phi-annotator-example",
-        version="1.2.1",
+        version="0.0.1",
         license=License.APACHE_2_0,
         repository="github:nlpsandbox/phi-annotator-example",
         description="Example implementation of the NLP Sandbox PHI " +
