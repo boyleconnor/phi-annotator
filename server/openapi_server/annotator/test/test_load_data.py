@@ -7,8 +7,7 @@ if os.getenv('DUMMY_DATA') == 'true':
     FILE_INDICES = (0, 1)
 else:
     TEST_DIRECTORY = \
-        'openapi_server/annotator/i2b2-data/2014_training-PHI-Gold-Set1' \
-        '/training-PHI-Gold-Set1'
+        'openapi_server/annotator/i2b2-data/training-PHI-Gold-Set1'
     FILE_INDICES = (8, 2, 5, 24)
 TEST_FILEPATH = os.path.join(TEST_DIRECTORY, '220-01.xml')
 
