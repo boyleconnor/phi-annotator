@@ -1,6 +1,4 @@
 import connexion
-import re
-
 from openapi_server.annotator.phi_types import PhiType
 from openapi_server.get_annotations import get_annotations
 from openapi_server.models.error import Error  # noqa: E501
