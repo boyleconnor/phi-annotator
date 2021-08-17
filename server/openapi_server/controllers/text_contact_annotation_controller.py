@@ -19,9 +19,7 @@ def create_text_contact_annotations(text_contact_annotation_request=None):  # no
         try:
             annotation_request = TextContactAnnotationRequest.from_dict(connexion.request.get_json())  # noqa: E501
             note = annotation_request.note
-            annotations = get_annotations(
-                note, phi_type=PhiType.CONTACT,
-                annotation_class=TextContactAnnotation)
+            annotations = get_annotations(note, phi_type=PhiType.CONTACT)
 
             res = TextContactAnnotationResponse(annotations)
             status = 200
