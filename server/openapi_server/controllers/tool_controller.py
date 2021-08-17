@@ -14,7 +14,7 @@ def get_tool():  # noqa: E501
     """
     tool = Tool(
         name="connor-phi-annotator",
-        version="0.0.1",
+        version="0.0.3",
         license=License.APACHE_2_0,
         repository="github:cascadianblue/phi-annotator",
         description="Connor Boyle's PHI annotator based on a linear SVM.",
