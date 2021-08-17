@@ -3,7 +3,6 @@ from openapi_server.annotator.phi_types import PhiType
 from openapi_server.get_annotations import get_annotations
 from openapi_server.models.error import Error  # noqa: E501
 from openapi_server.models.text_id_annotation_request import TextIdAnnotationRequest  # noqa: E501
-from openapi_server.models.text_id_annotation import TextIdAnnotation
 from openapi_server.models.text_id_annotation_response import TextIdAnnotationResponse  # noqa: E501
 
 
@@ -21,8 +20,7 @@ def create_text_id_annotations(text_id_annotation_request=None):  # noqa: E501
         try:
             annotation_request = TextIdAnnotationRequest.from_dict(connexion.request.get_json())  # noqa: E501
             note = annotation_request.note
-            annotations = get_annotations(note, phi_type=PhiType.ID,
-                                          annotation_class=TextIdAnnotation)
+            annotations = get_annotations(note, phi_type=PhiType.ID)
 
             res = TextIdAnnotationResponse(annotations)
             status = 200
