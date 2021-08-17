@@ -3,7 +3,6 @@ from openapi_server.get_annotations import get_annotations
 from openapi_server.models import TextContactAnnotation
 from openapi_server.models.error import Error  # noqa: E501
 from openapi_server.models.text_contact_annotation_request import TextContactAnnotationRequest  # noqa: E501
-from openapi_server.models.text_contact_annotation_response import TextContactAnnotationResponse  # noqa: E501
 from openapi_server.annotator.phi_types import PhiType
 
 

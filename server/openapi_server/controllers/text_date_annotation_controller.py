@@ -1,7 +1,6 @@
 import connexion
 from openapi_server.annotator.phi_types import PhiType
 from openapi_server.get_annotations import get_annotations
-from openapi_server.models import TextDateAnnotation
 from openapi_server.models.error import Error  # noqa: E501
 from openapi_server.models.text_date_annotation_request import \
     TextDateAnnotationRequest  # noqa: E501
@@ -23,8 +22,7 @@ def create_text_date_annotations():  # noqa: E501
             annotation_request = TextDateAnnotationRequest.from_dict(
                 connexion.request.get_json())  # noqa: E501
             note = annotation_request.note
-            annotations = get_annotations(note, phi_type=PhiType.DATE,
-                                          annotation_class=TextDateAnnotation)
+            annotations = get_annotations(note, phi_type=PhiType.DATE)
 
             res = TextDateAnnotationResponse(annotations)
             status = 200
