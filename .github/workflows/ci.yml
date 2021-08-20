@@ -11,7 +11,7 @@ on:
   pull_request:
 
 env:
-  docker_repository: docker.synapse.org/syn25953389/phi-annotator
+  docker_repository: docker.synapse.org/syn26118944/phi-annotator
 
 jobs:
   configure:
