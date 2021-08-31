@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   phi-annotator:
-    image: docker.synapse.org/syn25953389/phi-annotator:0.0.3
+    image: docker.synapse.org/syn25953389/phi-annotator:0.0.4
     build:
       context: server
       dockerfile: Dockerfile
